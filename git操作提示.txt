@@ -1,0 +1,16 @@
+git log查看历史
+git reset -hard id 回滚
+
+git remote add origin 仓库名 建立远程链接
+
+在本地新建一个分支： git branch Branch1
+
+切换到你的新分支: git checkout Branch1
+
+将新分支发布在github上： git push origin Branch1
+
+在本地删除一个分支： git branch -D Branch1
+
+在github远程端删除一个分支： git push origin :Branch1   (分支名前的冒号代表删除)
+
+git merge 分支1 分支2
