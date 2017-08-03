@@ -1,3 +1,4 @@
+var webpack = require('webpack')
 module.exports = {
 	//帮助调错误
 	devtool:'source-map',
@@ -9,7 +10,7 @@ module.exports = {
     //导出
     output : {
         //导出的文件名字
-        filename:'bundle.js',
+        filename:'bundle.js',//[name].js?v=[chunkhash:6],避免缓存
         //导出路径
         path: __dirname + '/public'
     },
@@ -63,6 +64,10 @@ module.exports = {
                 loader:"file-loader"
             }]
     },
+    //引入插件
+    plugins:[
+    	new webpack.optimize.UglifyJsPlugin()
+    ],
     //引入vue需要引入以下
     resolve:{
         alias:{
