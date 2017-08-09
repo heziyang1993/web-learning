@@ -28,10 +28,19 @@ function counter(state,action){
 	}
 	render();
 	store.subscribe(render)//监听变化==>computed
-	//触发对应的type
+	//触发对应的action
 	store.dispatch({
 		type:'',
 		type2:''
 	})
+}
+
+//对应的action return对应的type ==>vue actions:{a(context,data){context.commit('a',data)}}
+export function increaseAction() {
+  return {type: 'increase'};
+}
+
+export function multiAction() {
+  return {type: 'multi'};
 }
 ```
