@@ -21,8 +21,10 @@ module.exports = {
                 //正则匹配文件类型
                 test:/\.css$/,
                 //cnpm install css-loader和style-loader模块
+		 //cnpm install --save-dev autoprefixer postcss-loader
                 //这里要先style再css
-                loader:"style-loader!css-loader"
+                loader:"style-loader!css-loader"，
+		 //loaders:['style-loader','css-loader','postcss-loader']
             },{
                 //正则匹配文件类型
                 test:/\.html$/,
@@ -64,6 +66,8 @@ module.exports = {
                 loader:"file-loader"
             }]
     },
+    //自动补全C3前缀
+    //postcss:[autoprefixer({browsers:['last 2 versions']})]，
     //引入插件
     plugins:[
     	new webpack.optimize.UglifyJsPlugin()
