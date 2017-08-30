@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="vue.js"></script>
+		<script src="vuex.js"></script>
+	</head>
+	<body>
+		<div id="demo">
+			<div>{{name}}</div>
+		</div>
+	</body>
+	<script>
+		var store = new Vuex.Store({
+			state:{
+				name:'yao'
+			},
+			getters:{
+				name:(state)=>state.name
+			}
+		})
+		new Vue({
+			el:'#demo',
+			store,
+			computed:{
+				name(){
+					return this.$store.getters.name
+				}
+			},
+			
+		})
+	</script>
+</html>
