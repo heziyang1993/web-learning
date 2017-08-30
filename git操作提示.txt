@@ -1,16 +1,18 @@
-git log²é¿´ÀúÊ·
-git reset -hard id »Ø¹ö
+git logæŸ¥çœ‹å†å²
+git reset -hard id å›æ»š
 
-git remote add origin ²Ö¿âÃû ½¨Á¢Ô¶³ÌÁ´½Ó
+git remote add origin ä»“åº“å å»ºç«‹è¿œç¨‹é“¾æ¥
 
-ÔÚ±¾µØĞÂ½¨Ò»¸ö·ÖÖ§£º git branch Branch1
+åœ¨æœ¬åœ°æ–°å»ºä¸€ä¸ªåˆ†æ”¯ï¼š git branch Branch1
 
-ÇĞ»»µ½ÄãµÄĞÂ·ÖÖ§: git checkout Branch1
+åˆ‡æ¢åˆ°ä½ çš„æ–°åˆ†æ”¯: git checkout Branch1
 
-½«ĞÂ·ÖÖ§·¢²¼ÔÚgithubÉÏ£º git push origin Branch1
+å°†æ–°åˆ†æ”¯å‘å¸ƒåœ¨githubä¸Šï¼š git push origin Branch1
 
-ÔÚ±¾µØÉ¾³ıÒ»¸ö·ÖÖ§£º git branch -D Branch1
+åœ¨æœ¬åœ°åˆ é™¤ä¸€ä¸ªåˆ†æ”¯ï¼š git branch -D Branch1
 
-ÔÚgithubÔ¶³Ì¶ËÉ¾³ıÒ»¸ö·ÖÖ§£º git push origin :Branch1   (·ÖÖ§ÃûÇ°µÄÃ°ºÅ´ú±íÉ¾³ı)
+åœ¨githubè¿œç¨‹ç«¯åˆ é™¤ä¸€ä¸ªåˆ†æ”¯ï¼š git push origin :Branch1   (åˆ†æ”¯åå‰çš„å†’å·ä»£è¡¨åˆ é™¤)
 
-git merge ·ÖÖ§1 ·ÖÖ§2
+git merge åˆ†æ”¯1 åˆ†æ”¯2
+
+git remote origin set-url [url] é‡ç½®è¿œç¨‹ä»“åº“é“¾æ¥
