@@ -16,3 +16,5 @@ git remote add origin 仓库名 建立远程链接
 git merge 分支1 分支2
 
 git remote origin set-url [url] 重置远程仓库链接
+
+git reset --soft HEAD^ 撤销commit
