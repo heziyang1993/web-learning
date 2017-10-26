@@ -61,3 +61,24 @@
 <style>
 </style>
 ```
+```
+// 作用域插槽
+// 父组件
+<template>
+  <div class="parent">
+  <sync-child>
+    <!--利用scope的特殊语法-->
+    <template scope="props">
+      <span>hello from parent</span>
+      <span>{{ props.t }}</span>
+    </template>
+  </sync-child>
+</div>
+</template>
+// 子组件
+<template>
+  <div class="child">
+    <slot t="hello from child"></slot>
+  </div>
+</template>
+```
