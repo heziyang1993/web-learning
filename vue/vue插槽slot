@@ -1,0 +1,63 @@
+### vue插槽
+
+```
+// 父组件
+<template>
+  <div>
+    <slot-childs :mess="mess">
+      <!--此内容会替换下面的name=header的内容-->
+      <p slot="header">我是header</p>
+      <!--此内容会替换下面slot标签的内容-->
+      <p>分发内容</p>
+      <p>分发内容x2</p>
+    </slot-childs>
+    {{mess}}
+  </div>
+</template>
+
+<script>
+  import slotChilds from '../slot-child2.vue'
+  export default {
+    components: {
+      sslotChilds
+    },
+    data () {
+      return {
+        mess: '我是父级的mess'
+      }
+    }
+  }
+</script>
+
+<style>
+</style>
+
+```
+```
+// 子组件
+<template>
+  <div>
+    <h2>我是子组件的标题</h2>
+    <!--当上面有内容分发时，则会替换此组件slot里面的内容-->
+    <!--具名插槽，没有这个上面slot=header不会有显示-->
+    <slot name="header">child2header</slot>
+    <!--上面分发内容和分发内容x2存在时，会替换此内容，不存在时则显示此内容-->
+    <slot>子组件的slot</slot>
+    <p>分发内容不会替换我</p>
+</div>
+</template>
+
+<script>
+  export default {
+    props: ['mess'],
+    data () {
+      return {
+        
+      }
+    }
+  }
+</script>
+
+<style>
+</style>
+```
