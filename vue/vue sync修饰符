@@ -1,0 +1,61 @@
+### sync修饰符
+
+```
+// 父级经过props传递值到子级，如果想在子级改变父级的值可用sync修饰符
+// demo
+// 父组件
+<template>
+  <div>
+    // sync等于在父级启用了v-on
+    <sync-child :mess.sync="mess"></sync-child>
+    {{mess}}
+  </div>
+
+</template>
+
+<script>
+  import syncChild from '../sync-child.vue'
+  export default {
+    components: {
+      syncChild
+    },
+    data () {
+      return {
+        mess: '我是父级的mess'
+      }
+    }
+  }
+</script>
+
+<style>
+</style>
+```
+```
+// 子组件
+<template>
+  <div :mess="mess">
+    {{mess}}
+    <button @click="changeMess">点击</button>
+  </div>
+</template>
+
+<script>
+  export default {
+    props: ['mess'],
+    data () {
+      return  {
+        
+      }
+    },
+    methods: {
+      changeMess () {
+        // 重点是这句emit传播上去
+        this.$emit('update:mess', '子级改变mess');
+      }
+    }
+  }
+</script>
+
+<style>
+</style>
+```
