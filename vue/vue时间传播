@@ -1,0 +1,61 @@
+// 父组件
+<template>
+  <div class="parent">
+     <!--自定义一个事件用来接收子级传递事件-->
+    <sync-child  @showMess="showMess" :mess="mess"></sync-child>
+    <button @click="changeMess">fu点</button>
+</div>
+</template>
+
+<script>
+  import syncChild from '../sync-child.vue'
+//import syncChilds from '../sync-child2.vue'
+  export default {
+    components: {
+      syncChild
+    },
+    data () {
+      return {
+        mess: '我是父级的mess'
+      }
+    },
+    methods: {
+      showMess (val) {
+        this.mess = val
+      },
+      changeMess () {
+        this.mess = '我是父级的mess'
+      }
+    }
+  }
+</script>
+
+<style>
+</style>
+
+// 子组件
+<template>
+  <div class="child">
+    {{mess}}
+    <button @click="changeMess">zi点</button>
+  </div>
+</template>
+
+<script>
+  export default {
+    props: ['mess'],
+    data () {
+      return  {
+        
+      }
+    },
+    methods: {
+      changeMess () {
+        this.$emit('showMess', '子级改变mess');
+      }
+    }
+  }
+</script>
+
+<style>
+</style>
