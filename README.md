@@ -3,7 +3,6 @@ learning knowledge of web
 
 ### 学习网站
 
-###Welcome to use MarkDown
 
 | JS 学习资料 ||
 |-|-|
