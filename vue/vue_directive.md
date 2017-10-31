@@ -26,7 +26,9 @@
         // 当绑定元素插入到 DOM 中。
         bind: function (el,binding,vnode) {
             // 聚焦元素
-            el.focus()
+            el.focus();
+            //获取vue实例
+            vnode.context
         }
     })
     
