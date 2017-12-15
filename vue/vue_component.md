@@ -49,6 +49,7 @@
         //:meassage="name" --> message="{{name}}"
         template:'<xheader :message="name"></xheader>'
     })
+    // Object.assign(vm.$data, vm.$options.data()) 重置当前组件
 </script>
 </html>
 ```
