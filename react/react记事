@@ -1,0 +1,97 @@
+事件处理必须处理this，否则返回undefined
+父组件
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
+import Zujian from './components/widget/zujian.jsx'
+
+class App extends Component {
+//{/*这个函数接收组件Zujian，再传props到Zujian*/}
+  renderZujian(i) {
+    return(<Zujian text={this.state.text[i]}></Zujian>)
+  }
+  constructor() {
+    super()
+    {/*这里把handle的this只想react*/}
+    this.handle = this.handle.bind(this)
+    this.state = {
+      text: [9,8,7,6],
+      boolean: true
+    }
+  }
+  li() {
+    const li = this.state.text.map(ele => {
+      return (
+        <li>li{ele}</li>
+      )
+    })
+  }
+  test() {
+    {/*这里是条件渲染，利用函数接收返回DOM*/}
+    if (this.state.boolean) {
+      return(<div>{this.state.boolean} + 1</div>)
+    } else {
+      return(<div>{this.state.boolean} + 2</div>)
+    }
+  }
+  handle() {
+    {/*更改state状态必须使用setState*/}
+    this.setState({
+      boolean: !this.state.boolean
+    })
+  }
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h1 className="App-title">Welcome to React</h1>
+        </header>
+        <p className="App-intro">
+          To get started, edit <code>src/App.js</code> and save to reload.
+        </p>
+        <Diya></Diya>
+        {this.renderZujian(0)}
+        {this.renderZujian(1)}
+        {this.renderZujian(2)}
+        {this.renderZujian(3)}
+        <ul>
+          {this.li()}
+        </ul>
+        {this.test()}
+        <button onClick={this.handle}>点击我</button>
+      </div>
+    );
+  }
+}
+
+class Diya extends Component {
+  render() {
+    return (
+      <div>heziyang</div>
+    )
+  }
+}
+export default App;
+子组件
+import React, { Component } from 'react';
+class Zujian extends Component {
+  constructor() {
+    super()
+    this.state = {
+      value: [1,2,3,4,5,6]
+    }
+  }
+  render() {
+    return(
+      <div>
+        <div>我是组件1</div>
+        <div>{this.state.value}</div>
+        <div>{this.props.text}</div>
+        <button onClick={() => {this.setState({value: 'red'})}}>点击</button>
+      </div>
+
+    )
+  }
+}
+export default Zujian
