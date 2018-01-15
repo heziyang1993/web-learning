@@ -14,17 +14,20 @@ class App extends Component {
     super()
     {/*这里把handle的this只想react*/}
     this.handle = this.handle.bind(this)
+    this.select = this.select.bind(this)
     this.state = {
       text: [9,8,7,6],
       boolean: true
     }
   }
   li() {
-    const li = this.state.text.map(ele => {
+    const li = this.state.text.map((ele, index) => {
       return (
-        <li>li{ele}</li>
+        //列表渲染时，为每个li加上点击事件
+        <li key={index} onClick={() => this.select(index)}>li{ele}</li>
       )
     })
+    return li
   }
   test() {
     {/*这里是条件渲染，利用函数接收返回DOM*/}
@@ -34,13 +37,29 @@ class App extends Component {
       return(<div>{this.state.boolean} + 2</div>)
     }
   }
-  handle() {
+  handle(e) {
     {/*更改state状态必须使用setState*/}
     this.setState({
       boolean: !this.state.boolean
     })
+    e.preventDefault()
+    if (e.type === 'click') {
+      console.log(111)
+    }
+  }
+  select(id, e) {
+    console.log(id)
+    if (e) {
+      e.preventDefault()
+      console.log(222)
+    }
   }
   render() {
+    const li2 = this.state.text.map((ele, index) => {
+      return (
+        <li key={ele}>li{ele}</li>
+      )
+    })
     return (
       <div className="App">
         <header className="App-header">
@@ -73,6 +92,7 @@ class Diya extends Component {
   }
 }
 export default App;
+
 子组件
 import React, { Component } from 'react';
 class Zujian extends Component {
