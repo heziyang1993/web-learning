@@ -24,7 +24,8 @@ class App extends Component {
     const li = this.state.text.map((ele, index) => {
       return (
         //列表渲染时，为每个li加上点击事件
-        <li key={index} onClick={() => this.select(index)}>li{ele}</li>
+        // 点击事件e要写在后面
+        <li key={index} onClick={(e) => this.select(index, e)}>li{ele}</li>
       )
     })
     return li
@@ -48,11 +49,8 @@ class App extends Component {
     }
   }
   select(id, e) {
-    console.log(id)
-    if (e) {
-      e.preventDefault()
-      console.log(222)
-    }
+    e.preventDefault()
+    console.log(222)
   }
   render() {
     const li2 = this.state.text.map((ele, index) => {
