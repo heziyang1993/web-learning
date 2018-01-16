@@ -1,0 +1,57 @@
+// 父组件
+import React, { Component } from 'react';
+import Degree from './components/widget/degrees.jsx'
+import Fan from './components/widget/degrees.jsx'
+
+class App extends Component {
+  constructor() {
+    super()
+    this.handleInput = this.handleInput.bind(this)
+    this.state = {
+      tempretrue: ''
+    }
+  }
+  // 改变父级值的函数
+  handleTempToFan(val) {
+    this.setState({
+      tempretrue: val
+    })
+  }
+  handleTempToDeg(val) {
+    this.setState({
+      tempretrue: deg
+    })
+  }
+  render() {
+    return (
+      <div className="App">
+      // 把改变父级值的函数传给子组件
+        <Degree degree={this.state.tempretrue} handleTemp={this.handleTempToFan.bind(this)}></Degree>
+        <Fan degree={this.state.tempretrue} handleTemp={this.handleTempToDeg.bind(this)}></Fan>
+      </div>
+    );
+  }
+}
+// 子组件
+import React, { Component } from 'react';
+class Degrees extends Component {
+  constructor(props) {
+    super(props)
+    this.handle = this.handle.bind(this)
+    this.state = {
+    }
+  }
+  // 接收父组件传过来改变父级值的方法
+  handle(e) {
+    this.props.handleTemp(e.target.value)
+  }
+  render() {
+    return (
+      <div>
+      // change时调用父级传过来改变父级值的方法
+        <input value={this.props.degree} onChange={this.handle}/>
+      </div>
+    )
+  }
+}
+export default Degrees
