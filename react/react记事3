@@ -1,0 +1,18 @@
+例如，此代码可能无法更新计数器：
+// Wrong
+this.setState({
+  counter: this.state.counter + this.props.increment,
+});
+要修复它，请使用第二种形式的 setState() 来接受一个函数而不是一个对象。 该函数将接收先前的状态作为第一个参数，将此次更新被应用时的props做为第二个参数：
+// Correct
+this.setState((prevState, props) => ({
+  counter: prevState.counter + props.increment
+}));
+上方代码使用了箭头函数，但它也适用于常规函数：
+// Correct
+this.setState(function(prevState, props) {
+  return {
+    counter: prevState.counter + props.increment
+  };
+});
+
