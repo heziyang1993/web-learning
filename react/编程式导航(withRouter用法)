@@ -1,0 +1,21 @@
+编程式导航(withRouter用法)
+
+import {withRouter} from 'react-router-dom';
+
+goBack(){
+    this.props.history.goBack();
+}  
+goDetail(){
+    this.props.history.push('/detail');
+}  
+goDetailWithParam(item){
+    this.props.history.push({pathname : '/cart',state:{item}});
+}
+    
+<span className="ico" onClick={this.goBack.bind(this)}>
+    <i className="iconfont">&#xe501;</i>
+</span>
+//这里的item来自for循环的每一项
+<li onClick={this.goDetailWithParam.bind(this,item)} key={encodeURI(item.imgUrl)}>
+
+export default withRouter(Header);
