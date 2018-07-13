@@ -78,4 +78,15 @@ interface api {
 interface api {
   readonly x: number
 }
+
+函数
+function myFunction (x: string): string {
+  return x
+}
+
+完整类型
+let myFunction: (x: number, y: number) => number = function (x: number, y: number): number {
+  return x + y
+}
+
 ```
